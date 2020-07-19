@@ -1,15 +1,15 @@
+import { BrowserRouter } from 'react-router-dom'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
-import './assets/styles/reset.css'
+
 import App from './App'
 
+import './assets/styles/reset.css'
+
 ReactDOM.render(
-  <BrowserRouter>
-    <h1>Hello</h1>
-    <div>
-      <App />
-    </div>
+  // forceRefresh可以強迫在每次路由改變時重新加載頁面，解決每個頁面要scrollTop的問題，可以試試看
+  <BrowserRouter forceRefresh={true}>
+    <App />
   </BrowserRouter>,
   document.getElementById('root')
 )
