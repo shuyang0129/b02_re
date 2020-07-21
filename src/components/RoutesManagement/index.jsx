@@ -10,7 +10,7 @@ import { path } from '../../router'
  * @param {boolean} isLogin 當前使用者的登入狀態
  * @param {Object} routes 自定義的路由清單
  * @param {Array} routerInfo 路由資訊：[match, location, history]
- * @returns React Route
+ * @returns 需要登入，導致Login，否則導到對應component
  */
 const Routes = ({ isLogin, routes, ...routerInfo }) => {
   return routes.map(route => {
@@ -21,7 +21,7 @@ const Routes = ({ isLogin, routes, ...routerInfo }) => {
         {route.needLogin && !isLogin ? (
           <Redirect to={path.LOGIN} />
         ) : (
-          <Component meta={route.meta} {...routerInfo} />
+          <Component {...routerInfo} />
         )}
       </Route>
     )
@@ -32,7 +32,6 @@ const Routes = ({ isLogin, routes, ...routerInfo }) => {
  * @name RoutesManagement(路由管理中心)
  * @description 提供自定義routes物件，交由路由中心處理，包括404頁面的導向以及是否需要登入的判斷
  * @param props 包含isLogin(使用者登入狀態)、routes(路由清單)，還有來自withRouter的路由資訊：match、location、history
- * @returns React Node
  */
 const RoutesManagement = props => {
   const { routes, location, history } = props
@@ -54,11 +53,11 @@ const RoutesManagement = props => {
     if (!isRouteExist) history.replace(path.PAGE_NOT_FOUND)
   }, [history, matchedRoute, routes])
 
-  // useEffect | 當location改變時，把對應的meta資訊塞進location.state中
+  // useEffect | 當location改變時，把對應的route.state資訊塞進location.state中
   useEffect(() => {
     if (routes && routes.length > 0) {
-      const { meta } = routes.find(matchedRoute)
-      if (meta) location.state = { ...location.state, ...meta }
+      const { state } = routes.find(matchedRoute)
+      if (state) location.state = { ...location.state, ...state }
     }
   }, [location, routes, matchedRoute])
 
