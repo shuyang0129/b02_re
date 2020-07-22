@@ -13,10 +13,10 @@
     "styled-components": "^5.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,6 +35,8 @@
   },
   "devDependencies": {
     "express": "^4.17.1",
-    "express-mockjs": "^0.4.9"
+    "express-mockjs": "^0.4.9",
+    "react-app-rewire-aliases": "^0.2.0",
+    "react-app-rewired": "^2.1.6"
   }
 }
