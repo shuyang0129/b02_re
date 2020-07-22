@@ -42,7 +42,8 @@ const RoutesManagement = props => {
       if (route.path === 'undefined') return false
       return route.exact
         ? route.path === location.pathname // 1) exact: true => 瀏覽器網址必須與路由路徑相同
-        : location.pathname.startsWith(route.path + '/') // 2) exact: false => 瀏覽器網址必須以路由路徑開頭
+        : route.path === location.pathname ||
+            location.pathname.startsWith(route.path + '/') // 2) exact: false => 瀏覽器網址必須以路由路徑開頭
     },
     [location.pathname]
   )
