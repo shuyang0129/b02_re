@@ -10,7 +10,6 @@ import { useHistory } from 'react-router-dom'
 
 const Login = props => {
   const history = useHistory()
-  console.log('props', props)
 
   const login = () => {
     localStorage.setItem('token', 'login...')

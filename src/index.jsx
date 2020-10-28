@@ -1,17 +1,16 @@
+import '@assets/styles/reset.css'
+
+import {
+  asyncDecrement,
+  decrement,
+  increment,
+} from '@/actions/countActions'
+
+import App from '@/App'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import React from 'react'
 import ReactDOM from 'react-dom'
-
-import '@assets/styles/reset.css'
-
-import {
-  increment,
-  decrement,
-  asyncDecrement,
-} from '@/actions/countActions'
-
-import App from '@/App'
 import store from '@/store'
 
 store.dispatch(increment())

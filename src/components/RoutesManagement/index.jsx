@@ -16,7 +16,6 @@ const Routes = ({ routes, ...routerInfo }) => {
   const isLogin = !!localStorage.getItem('token')
 
   return routes.map(route => {
-    console.log('Routes -> route', route)
     const Component = lazy(route.component) // 使用lazy載入component
 
     return (

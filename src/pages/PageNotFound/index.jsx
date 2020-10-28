@@ -7,7 +7,6 @@ import React from 'react'
 import TopBar from '@components/TopBar'
 
 const PageNotFound = props => {
-  console.log('props', props)
   return (
     <Container>
       <TopBar left={BACK} />

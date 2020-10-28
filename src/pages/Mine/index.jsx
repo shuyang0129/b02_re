@@ -10,7 +10,6 @@ import { useHistory } from 'react-router-dom'
 
 const Mine = props => {
   const history = useHistory()
-  console.log('props', props)
 
   const logout = () => {
     localStorage.removeItem('token')

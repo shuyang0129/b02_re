@@ -8,7 +8,6 @@ import React from 'react'
 import TopBar from '@components/TopBar'
 
 const Home = props => {
-  console.log('props', props)
   return (
     <Container>
       <TopBar left={LOGO} />
