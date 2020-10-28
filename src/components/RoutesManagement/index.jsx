@@ -2,7 +2,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import React, { lazy, Suspense, useEffect, useCallback } from 'react'
 
-import { path } from '../../router'
+import * as path from '@constants/routes'
 
 /**
  * @name Routes(路由清單)
@@ -12,8 +12,11 @@ import { path } from '../../router'
  * @param {Array} routerInfo 路由資訊：[match, location, history]
  * @returns 需要登入，導致Login，否則導到對應component
  */
-const Routes = ({ isLogin, routes, ...routerInfo }) => {
+const Routes = ({ routes, ...routerInfo }) => {
+  const isLogin = !!localStorage.getItem('token')
+
   return routes.map(route => {
+    console.log('Routes -> route', route)
     const Component = lazy(route.component) // 使用lazy載入component
 
     return (

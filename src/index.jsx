@@ -22,7 +22,7 @@ store.dispatch(asyncDecrement())
 ReactDOM.render(
   // forceRefresh可以強迫在每次路由改變時重新加載頁面，解決每個頁面要scrollTop的問題，可以試試看
   <Provider store={store}>
-    <BrowserRouter forceRefresh={true}>
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </Provider>,

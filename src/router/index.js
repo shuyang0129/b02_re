@@ -1,13 +1,4 @@
-/**
- * @name PathConstant(路由路徑常數)
- * @description 使用path[key]來取路徑字串，統一在這裡管理路徑字串
- */
-export const path = {
-  LOGIN: '/login',
-  HOME: '/',
-  ABOUT: '/about',
-  PAGE_NOT_FOUND: '/404',
-}
+import * as route from '@constants/routes'
 
 /**
  * @name Routes(路由清單)
@@ -21,7 +12,7 @@ export const path = {
  */
 export const routes = [
   {
-    path: path.LOGIN,
+    path: route.LOGIN,
     name: 'login',
     component: () => import('../pages/Login'),
     needLogin: false,
@@ -31,7 +22,17 @@ export const routes = [
     },
   },
   {
-    path: path.HOME,
+    path: route.REGISTER,
+    name: 'register',
+    component: () => import('../pages/Register'),
+    needLogin: false,
+    exact: true,
+    state: {
+      greeting: 'I am Register Page',
+    },
+  },
+  {
+    path: route.HOME,
     name: 'home',
     component: () => import('../pages/Home'),
     needLogin: false,
@@ -43,7 +44,7 @@ export const routes = [
     },
   },
   {
-    path: path.ABOUT,
+    path: route.ABOUT,
     name: 'about',
     component: () => import('../pages/About'),
     needLogin: true,
@@ -51,7 +52,15 @@ export const routes = [
     state: {},
   },
   {
-    path: path.PAGE_NOT_FOUND, // 捕獲其他不存在的頁面，導至404
+    path: route.MINE,
+    name: 'mine',
+    component: () => import('../pages/Mine'),
+    needLogin: true,
+    exact: false,
+    state: {},
+  },
+  {
+    path: route.PAGE_NOT_FOUND, // 捕獲其他不存在的頁面，導至404
     name: '404',
     component: () => import('../pages/PageNotFound'),
     needLogin: false,
