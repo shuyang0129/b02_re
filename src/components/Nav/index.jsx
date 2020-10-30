@@ -1,6 +1,8 @@
-import React from 'react'
 import * as S from './style'
-import { ABOUT, LOGIN, REGISTER, MINE } from '@constants'
+
+import { ABOUT, LOGIN, MINE, REGISTER } from '@constants'
+
+import React from 'react'
 
 const Nav = () => {
   return (

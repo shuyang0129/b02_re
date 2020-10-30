@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react'
-// components
 import * as S from './style'
 import * as topBarButtons from './TopBarButtons'
+
+import React, { Fragment } from 'react'
 
 /**
  *

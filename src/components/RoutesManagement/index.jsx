@@ -1,8 +1,8 @@
-import { Switch, Route, Redirect } from 'react-router-dom'
-import { withRouter } from 'react-router'
-import React, { lazy, Suspense, useEffect, useCallback } from 'react'
+import { LOGIN, PAGE_NOT_FOUND, REGISTER } from '@constants/routes'
+import React, { Suspense, lazy, useCallback, useEffect } from 'react'
+import { Redirect, Route, Switch } from 'react-router-dom'
 
-import * as path from '@constants/routes'
+import { withRouter } from 'react-router'
 
 /**
  * @name Routes(路由清單)
@@ -21,7 +21,7 @@ const Routes = ({ routes, ...routerInfo }) => {
     return (
       <Route key={route.name} exact={route.exact} path={route.path}>
         {route.needLogin && !isLogin ? (
-          <Redirect to={path.LOGIN} />
+          <Redirect to={LOGIN} />
         ) : (
           <Component {...routerInfo} />
         )}
@@ -53,7 +53,7 @@ const RoutesManagement = props => {
   // useEffect | 如果url不存在，replace到404頁面，回上一頁就不會回到不存在的頁面
   useEffect(() => {
     const isRouteExist = routes.some(matchedRoute)
-    if (!isRouteExist) history.replace(path.PAGE_NOT_FOUND)
+    if (!isRouteExist) history.replace(PAGE_NOT_FOUND)
   }, [history, matchedRoute, routes])
 
   // useEffect | 當location改變時，把對應的route.state資訊塞進location.state中
@@ -64,6 +64,15 @@ const RoutesManagement = props => {
     }
   }, [location, routes, matchedRoute])
 
+  // useEffect | 當使用者已經登入，不能訪問登入/註冊頁
+  useEffect(() => {
+    const isLogin = !!localStorage.getItem('token')
+
+    if (isLogin && [LOGIN, REGISTER].includes(location.pathname)) {
+      history.goBack()
+    }
+  }, [location, history])
+
   return (
     <Switch>
       <Suspense fallback={<h3>Loading...</h3>}>
@@ -71,10 +80,6 @@ const RoutesManagement = props => {
       </Suspense>
     </Switch>
   )
-}
-
-RoutesManagement.defaultProps = {
-  isLogin: false,
 }
 
 // withRouter ｜ 讓routes中列出的components都可以取得路由資訊(props中：match, history, location)

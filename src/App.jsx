@@ -1,7 +1,7 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment } from 'react'
 
-import { routes } from '../src/router'
-import RoutesManagement from './components/RoutesManagement'
+import RoutesManagement from '@components/RoutesManagement'
+import { routes } from '@router'
 
 const App = () => {
   return (
