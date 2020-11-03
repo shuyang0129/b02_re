@@ -13,7 +13,11 @@ const Home = props => {
       <TopBar left={LOGO} />
       <MainContent>
         <Nav />
-        <S.Container>Home</S.Container>
+        <S.Container>
+          <p>Home</p>
+          <p>{process.env.REACT_APP_KEYWORD}</p>
+          <p>{process.env.REACT_APP_SECRET}</p>
+        </S.Container>
       </MainContent>
     </Container>
   )

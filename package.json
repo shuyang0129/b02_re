@@ -17,6 +17,8 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
+    "start:prod": "dotenv -e .env.production react-app-rewired start",
+    "build:dev": "dotenv -e .env.development react-app-rewired build",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject"
@@ -37,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "dotenv-cli": "^4.0.0",
     "express": "^4.17.1",
     "express-mockjs": "^0.4.9",
     "react-app-rewire-aliases": "^0.2.0",
