@@ -28,8 +28,6 @@ English
 
 這個專案的目的是作為下一個 React 專案的起始環境，包含許多方便開發的環境設定，包含路由守衛、環境變數、路徑別名、Redux、Redux Thunk、Redux 開發者工具...ˇ 等等。
 
-The project aims to provide a starter environment for incoming React projects. The starter provides multiple features such as protectd router, environment variables, alias path, Redux, Redux thunk, Redux Devtools and so much more.
-
 ## 路由守衛
 
 - 開發者可以透過編輯 `@router/index.js` routes 物件，來新增專案所需路由(route)
