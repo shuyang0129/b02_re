@@ -14,15 +14,15 @@
 
 English
 
-- [About](##About)
+- [About](##about)
 
-- [Protected Routes](##Protected-Routes)
+- [Protected Routes](##protected-Routes)
 
-- [Environment Variables](##環境變數)
+- [Environment Variables](##environment-variables)
 
-- [Alias Path](##Alias-Path)
+- [Alias Path](##alias-path)
 
-- [Available Scripts](##Available-Scripts)
+- [Available Scripts](##available-scripts)
 
 ## 關於
 
